@@ -7,28 +7,28 @@
 </head>
 <body>
 
-    <input type="checkbox" name="checkbox" id="Checkbox" >
+    <input type="checkbox" name="checkbox" id="Checkbox" checked>
 
     <script>
 
-        function Cheking() {
             const myPromise = new Promise(function(resolve,reject){
+                let output;
                 if(document.getElementById("Checkbox").checked){
                     output = "OK";
                     resolve(output);
                 }
                 else{
                     output = "Fail";
-                    resolve(output);
+                    reject(output);
                 }
             })
-            return myPromise;
-        }   
+            
+           
 
-        Cheking().then(function(data){
+        myPromise.then(function(data){
             console.log(data);
-        }).catch(function(){
-            console.log("Error");
+        }).catch(function(data){
+            console.log(data);
         })
 
     </script>
